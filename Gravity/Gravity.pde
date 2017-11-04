@@ -36,7 +36,7 @@ public class Mass {
 
 public class Player extends Mass {
   
-  protected PVector vel, acc;
+  private PVector vel, acc;
   
   public Player(int x, int y, float r, color c) {
     super(x, y, r);
@@ -97,7 +97,7 @@ ArrayList<Player> players = new ArrayList<Player>();
 Mass planet;
 
 void setup() {
-
+  
   orientation(LANDSCAPE);
   fullScreen();
   
@@ -112,7 +112,7 @@ void setup() {
 }
 
 void draw() {
-
+  
   background(0);
   
   fill(255);
@@ -161,7 +161,7 @@ void draw() {
 }
 
 void mousePressed() {
-
+  
   PVector trans = PVector.sub(new PVector(width/2, height/2), planet.getPos());
   if (dist((mouseX - trans.x), (mouseY - trans.y), planet.getPos().x, planet.getPos().y) < planet.getR()) {
     players.clear();
@@ -179,7 +179,7 @@ void mousePressed() {
 }
 
 void mouseReleased() {
-
+  
   tempG = constG;
   tempLength = players.size();
   adjust = 0;
