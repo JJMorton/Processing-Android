@@ -1,5 +1,4 @@
 int adjust = 0;
-float adjustOrigin;
 
 int r, g, b;
 
