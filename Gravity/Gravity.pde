@@ -97,6 +97,7 @@ ArrayList<Player> players = new ArrayList<Player>();
 Mass planet;
 
 void setup() {
+
   orientation(LANDSCAPE);
   fullScreen();
   
@@ -107,9 +108,11 @@ void setup() {
   }
   
   planet = new Mass(300, 0, 75);
+  
 }
 
 void draw() {
+
   background(0);
   
   fill(255);
@@ -121,6 +124,7 @@ void draw() {
     text("Strength", width/4, height/2 + 45);
     textSize(90);
     text(String.format(java.util.Locale.US, "%.1f", constG), width/4, height/2);
+    
   } else if (adjust == 2) {
     int diff = constrain(tempLength + floor((adjustOrigin - mouseY) / (height / 50)), 1, 500) - players.size();
     if (diff > 0) {
@@ -157,6 +161,7 @@ void draw() {
 }
 
 void mousePressed() {
+
   PVector trans = PVector.sub(new PVector(width/2, height/2), planet.getPos());
   if (dist((mouseX - trans.x), (mouseY - trans.y), planet.getPos().x, planet.getPos().y) < planet.getR()) {
     players.clear();
@@ -170,10 +175,13 @@ void mousePressed() {
     adjustOrigin = mouseY;
     adjust = 2;
   }
+  
 }
 
 void mouseReleased() {
+
   tempG = constG;
   tempLength = players.size();
   adjust = 0;
+  
 }
